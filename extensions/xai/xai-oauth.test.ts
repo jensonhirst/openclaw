@@ -975,7 +975,11 @@ describe("device token response bytes", () => {
       name: "multilingual Unicode scalars",
       valid: true,
       bytes: Buffer.from(
-        JSON.stringify({ access_token: "café-日本語-🚀-�", refresh_token: "référer" }),
+        JSON.stringify({
+          access_token: "café-日本語-🚀-�",
+          refresh_token: "référer",
+          expires_in: 3600,
+        }),
       ),
     },
   ])(
@@ -1078,7 +1082,7 @@ describe("device token response bytes", () => {
             { error: polls === 1 ? "authorization_pending" : "slow_down" },
             { status: 400 },
           )
-        : jsonResponse({ access_token: "access", refresh_token: "refresh" });
+        : jsonResponse({ access_token: "access", refresh_token: "refresh", expires_in: 3600 });
     });
     const startedAt = Date.now();
     await login.requested.promise;
