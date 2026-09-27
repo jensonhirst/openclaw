@@ -1,6 +1,6 @@
 {
   "id": "qwen",
-  "categories": ["models", "media"],
+  "categories": ["models"],
   "activation": {
     "onStartup": false
   },
@@ -409,6 +409,12 @@
     "discovery": {
       "qwen": "runtime",
       "qwen-token-plan": "refreshable"
+    }
+  },
+  "modelPricing": {
+    "providers": {
+      "qwen": { "modelsDev": { "provider": "alibaba" } },
+      "qwen-token-plan": { "modelsDev": { "provider": "alibaba" } }
     }
   },
   "contracts": {
